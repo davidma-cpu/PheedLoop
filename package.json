@@ -1,0 +1,23 @@
+{
+  "name": "pheedloop",
+  "version": "1.0.0",
+  "description": "creating a basic version of PheedLoop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-fetchopia/PheedLoop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-fetchopia/PheedLoop/issues"
+  },
+  "homepage": "https://github.com/david-fetchopia/PheedLoop#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7"
+  }
+}
