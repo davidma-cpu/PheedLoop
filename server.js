@@ -133,7 +133,11 @@ app.get("/sessions/:id", function (req, res) {
 });
 
 app.post("/sessions/:id", function(req, res) {
-    res.json("Thank you for submitting a rating");
+    db.Session.findByIdAndUpdate(req.params.id, {$push:{ratings:req.body.rating}}, {new:true})
+        .then(function(dbSession) {
+            console.log(dbSession);
+            res.json(dbSession);
+        })
 })
 
 // Start the server

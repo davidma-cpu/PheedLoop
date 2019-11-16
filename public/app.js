@@ -22,7 +22,7 @@ $.getJSON("/sessions", function(data) {
     })
       // With that done, add the note information to the page
       .then(function(data) {
-        console.log(data.speakers);
+        console.log(data);
         // The title of the article
         // $("#speakers").append("<h2>" + data.speakers[0].name + "</h2>");
         // An input to enter a new title
@@ -51,16 +51,15 @@ $.getJSON("/sessions", function(data) {
   $(document).on("click", "#saverating", function() {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
+    var rating = $("#ratinginput").val();
+    //console.log(rating);
   
-    // Run a POST request to change the note, using what's entered in the inputs
+    // Run a POST request to change the rating, using what's entered in the inputs
     $.ajax({
       method: "POST",
       url: "/sessions/" + thisId,
       data: {
-        // Value taken from title input
-        rating: $("#ratinginput").val(),
-        // Value taken from note textarea
-        // body: $("#bodyinput").val()
+        rating: rating
       }
     })
       // With that done
@@ -71,7 +70,7 @@ $.getJSON("/sessions", function(data) {
         $("#speakers").empty();
       });
   
-    // Also, remove the values entered in the input and textarea for note entry
+    // Also, remove the values entered in the input and textarea for rating entry
     $("#ratinginput").val("");
   });
   
