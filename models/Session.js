@@ -18,16 +18,19 @@ var SessionSchema = new Schema({
   },
   // `rating` is not required and of type Array of Numbers
   ratings: {
-      type: [Number],
-      required: false
+    type: [Number],
+    required: false
   },
   // `speakers` is an object that stores a speaker id
   // The ref property links the ObjectId to the Speaker model
   // This allows us to populate the Session with an associated Speakers
-  speakers: {
-    type: Schema.Types.ObjectId,
-    ref: "Speaker"
-  }
+  speakers: [{
+    name: String,
+    biography: String,
+    photo: String,
+    phoneNumber: Number,
+    email: String
+  }]
 });
 
 // This creates our model from the above schema, using mongoose's model method
