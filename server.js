@@ -13,7 +13,8 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/test1", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/test1";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 app.get("/load-data", function (req, res) {
